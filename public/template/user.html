@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+         <ul class="col-md-8 col-md-offset-3 list-unstyled pad-top-md">
+              <li class="col-md-4"><center><img class="img-circle" ng-src="{{revPerf.owner.avatar}}" alt=""></center></li>
+              <li class="col-md-4">
+                   <strong class="col-md-12 text-primary text-uppercase">{{revPerf.owner.name}}</strong>
+                        <div class="col-md-12 pad-top-md">
+                             <ul class="list-unstyled inline-list">
+                                  <li class="pull-left">{{revPerf.revenue_actual | currency:"$"}}</li>
+                                  <li class="pull-right text-primary">{{revPerf.revenue_target | currency:"$"}}</li>
+                             </ul>
+                        </div>
+                        <div class="col-md-12">
+                             <div class="progress">
+                                <span ng-hide="true">{{progress = ctrl.getPercentage(revPerf.revenue_target , revPerf.revenue_actual )}}</span>
+                                <div class="progress-bar"
+                                     ng-class="(rev.Perf.revenue_target >= rev.Perf.expected) ? 'progress-bar-success' : 'progress-bar-danger'"
+                                     role="progressbar" aria-valuemin="0" aria-valuemax="100" ng-style="{'width' : progress + '%'}">
+                                  {{ctrl.getPercentage(revPerf.revenue_target , revPerf.revenue_actual )}}%
+                             </div>
+                             </div>
+                             <div class="text-center">
+                                 {{revPerf.expected | currency: "$ "}}
+                            </div>
+                        </div>
+              </li>
+         </ul>
+    </div>
+</div>
